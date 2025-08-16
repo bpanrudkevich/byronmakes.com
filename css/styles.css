@@ -56,6 +56,7 @@ body {
   text-align: center;
   color: white;
   z-index: 1;
+  padding-top: 3.5rem; /* adjust if needed to match nav height */
 }
 
 .hero h1 {
@@ -69,24 +70,83 @@ body {
 
 /* ===== Navigation ===== */
 nav {
-  position: absolute;
-  top: 20px;
+  position: fixed;
+  top: 0;
+  left: 0;
   width: 100%;
   text-align: center;
-  z-index: 2;
+  z-index: 10;
+  background: rgb(255, 255, 255); /* semi-transparent for readability */
+  padding: 0.75rem 0;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
 }
 
 nav a {
-  color: white;
-  margin: 0 1.5rem;
+  color: rgb(0, 0, 0);
+  margin: 0 2.5rem;
   text-decoration: none;
   font-weight: 600;
   transition: color 0.3s;
+  font-size: 1.25rem;
 }
 
 nav a:hover {
   color: #00bcd4;
 }
+
+/* Dropdown container */
+.dropdown {
+  display: inline-block;
+  position: relative;
+}
+
+/* Dropdown button (Projects link) */
+.dropbtn {
+  cursor: pointer;
+}
+
+/* Dropdown content (hidden by default) */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #fff;
+  min-width: 180px;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+  z-index: 20;
+  border-radius: 0 0 8px 8px;
+  padding: 0.5rem 0;
+  text-align: left;
+}
+
+/* Dropdown links */
+.dropdown-content a {
+  color: #222;
+  padding: 0.75rem 1.5rem;
+  text-decoration: none;
+  display: block;
+  font-size: 1rem;
+  font-weight: 500;
+  background: none;
+  transition: background 0.2s, color 0.2s;
+}
+
+.dropdown-content a:hover {
+  background-color: #f0f0f0;
+  color: #00bcd4;
+}
+
+/* Show dropdown on hover */
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+/* Keep nav links aligned */
+nav a, .dropdown {
+  vertical-align: middle;
+}
+
 
 /* ===== Skills Section ===== */
 .skills {
@@ -114,6 +174,12 @@ footer {
   padding: 1rem;
   background-color: #222;
   color: white;
+}
+
+/* Make footer email link light blue, even when visited */
+footer a[href^="mailto:"] {
+  color: #4fc3f7 !important; /* Light blue */
+  text-decoration: underline;
 }
 
 /* ===== Project Cards (optional, for projects page) ===== */
