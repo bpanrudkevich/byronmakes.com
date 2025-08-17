@@ -34,13 +34,13 @@
 
   <!-- Header with Video Background -->
   <header class="hero">
-    <video autoplay muted loop playsinline id="temp-vid" poster="images/video-fallback.jpg">
+    <video autoplay muted loop playsinline id="temp-vid" poster="img/video-fallback.jpg">
       <source src="videos/underact-hand-grasp.mp4" type="video/mp4">
       <source src="videos/underact-hand-grasp.webm" type="video/webm">
       Your browser does not support the video tag.
     </video>
     <div class="hero-content">
-      <h1>Hi, I’m Byron</h1>
+      <h1>hi, i’m byron</h1>
       <p>Mechanical Engineer | Designer | Maker</p>
     </div>
   </header>
@@ -54,6 +54,35 @@
         <div>OnShape</div>
         <div>3D Printing</div>
         <div>Airflow Simulation</div>
+      </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section class="projects">
+      <h2>Featured Projects</h2>
+      <div class="project-panel parallax-panel" id="parallax-project1" style="background-image: url('img/underact-hand.jpg');">
+        <div class="panel-content">
+          <img src="img/underact-hand.jpg" alt="Underactuated Robotic Hand" class="project-thumb">
+          <h3>Underactuated Robotic Hand</h3>
+          <p>Short description of the project.</p>
+          <a href="project1.html" class="panel-btn">Learn More</a>
+        </div>
+      </div>
+      <div class="project-panel" style="background-image: url('img/project2-bg.jpg');">
+        <div class="panel-content">
+          <img src="img/project2-thumb.jpg" alt="Project 2" class="project-thumb">
+          <h3>Project 2</h3>
+          <p>Short description of project 2.</p>
+          <a href="project2.html" class="panel-btn">Learn More</a>
+        </div>
+      </div>
+      <div class="project-panel" style="background-image: url('img/project3-bg.jpg');">
+        <div class="panel-content">
+          <img src="img/project3-thumb.jpg" alt="Project 3" class="project-thumb">
+          <h3>Project 3</h3>
+          <p>Short description of project 3.</p>
+          <a href="project3.html" class="panel-btn">Learn More</a>
+        </div>
       </div>
     </section>
   </main>
@@ -81,6 +110,21 @@
       hamburger.classList.remove('spin');
     };
   });
+
+  // Smooth parallax effect for Project 1
+  const parallaxPanel = document.getElementById('parallax-project1');
+  let lastScrollY = window.scrollY;
+
+  function updateParallax() {
+    if (parallaxPanel) {
+      // Adjust the divisor (e.g., 2.5) for more/less parallax effect
+      const offset = window.scrollY / 2.5;
+      parallaxPanel.style.backgroundPosition = `center ${-offset}px`;
+    }
+    requestAnimationFrame(updateParallax);
+  }
+
+  requestAnimationFrame(updateParallax);
 </script>
 </body>
 </html>

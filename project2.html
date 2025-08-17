@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Project 2 | Byron Makes</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <nav>
+    <span class="hamburger" id="hamburger">
+      <span class="bar"></span>
+      <span class="bar"></span>
+      <span class="bar"></span>
+    </span>
+    <div class="nav-links" id="navLinks">
+      <a href="index.html">Home</a>
+      <div class="dropdown">
+        <a href="projects.html" class="dropbtn">Projects</a>
+        <div class="dropdown-content">
+          <a href="project1.html">Underactuated Robotic Hand</a>
+          <a href="project2.html">Project 2</a>
+          <a href="project3.html">Project 3</a>
+        </div>
+      </div>
+      <a href="resume.html">Resume</a>
+      <a href="about.html">About</a>
+    </div>
+  </nav>
+  <main>
+    <section class="project-detail">
+      <h1>Project 2</h1>
+      <p>Project description goes here. Add images, videos, and details about your second project.</p>
+    </section>
+  </main>
+  <footer>
+    <p>Contact me at <a href="mailto:hello@byronmakes.com">hello@byronmakes.com</a></p>
+    <p>&copy; 2025 Byron Makes</p>
+  </footer>
+  <script>
+    const hamburger = document.getElementById('hamburger');
+    const navLinks = document.getElementById('navLinks');
+    const navLinkItems = navLinks.querySelectorAll('a');
+    hamburger.onclick = function() {
+      navLinks.classList.toggle('open');
+      hamburger.classList.toggle('spin');
+    };
+    navLinkItems.forEach(link => {
+      link.onclick = function() {
+        navLinks.classList.remove('open');
+        hamburger.classList.remove('spin');
+      };
+    });
+  </script>
+</body>
+</html>
