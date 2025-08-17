@@ -12,17 +12,24 @@
 <body>
   <!-- Navigation on top -->
   <nav>
-    <a href="index.html">Home</a>
-    <div class="dropdown">
-      <a href="projects.html" class="dropbtn">Projects</a>
-      <div class="dropdown-content">
-        <a href="project1.html">Underactuated Robotic Hand</a>
-        <a href="project2.html">Project 2</a>
-        <a href="project3.html">Project 3</a>
+    <span class="hamburger" id="hamburger">
+      <span class="bar"></span>
+      <span class="bar"></span>
+      <span class="bar"></span>
+    </span>
+    <div class="nav-links" id="navLinks">
+      <a href="index.html">Home</a>
+      <div class="dropdown">
+        <a href="projects.html" class="dropbtn">Projects</a>
+        <div class="dropdown-content">
+          <a href="project1.html">Underactuated Robotic Hand</a>
+          <a href="project2.html">Project 2</a>
+          <a href="project3.html">Project 3</a>
+        </div>
       </div>
+      <a href="resume.html">Resume</a>
+      <a href="about.html">About</a>
     </div>
-    <a href="resume.html">Resume</a>
-    <a href="about.html">About</a>
   </nav>
 
   <!-- Header with Video Background -->
@@ -58,5 +65,22 @@
     <p>&copy; 2025 Byron Makes</p>
   </footer>
 
+  <script>
+  const hamburger = document.getElementById('hamburger');
+  const navLinks = document.getElementById('navLinks');
+  const navLinkItems = navLinks.querySelectorAll('a');
+
+  hamburger.onclick = function() {
+    navLinks.classList.toggle('open');
+    hamburger.classList.toggle('spin');
+  };
+
+  navLinkItems.forEach(link => {
+    link.onclick = function() {
+      navLinks.classList.remove('open');
+      hamburger.classList.remove('spin');
+    };
+  });
+</script>
 </body>
 </html>

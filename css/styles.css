@@ -147,6 +147,94 @@ nav a, .dropdown {
   vertical-align: middle;
 }
 
+/* Hamburger styles */
+.hamburger {
+  display: none;
+  width: 2rem;
+  height: 2rem;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  position: absolute;
+  left: 1rem;
+  top: 0.75rem;
+  z-index: 30;
+  transition: transform 0.4s cubic-bezier(.68,-0.55,.27,1.55);
+}
+.hamburger .bar {
+  width: 2rem;
+  height: 0.25rem;
+  background: #222;
+  margin: 0.22rem 0;
+  border-radius: 2px;
+  transition: all 0.4s;
+  display: block;
+}
+.hamburger.spin {
+  animation: spinBurger 0.5s;
+  transform: rotate(180deg);
+}
+@keyframes spinBurger {
+  0% { transform: rotate(0deg);}
+  100% { transform: rotate(180deg);}
+}
+
+/* Responsive nav */
+@media (max-width: 768px) {
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    background: rgba(255,255,255,0.97);
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100vw;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    padding: 1rem 0;
+    z-index: 15;
+  }
+  .nav-links.open {
+    display: flex;
+  }
+  nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    background: rgba(255,255,255,0.97);
+    z-index: 20;
+    height: 3.5rem;
+    display: flex;
+    align-items: center;
+  }
+  .hamburger {
+    display: flex;
+  }
+  nav .nav-links a,
+  nav .dropdown {
+    margin: 1rem 0;
+    font-size: 1.2rem;
+    display: block;
+    text-align: left;
+    padding: 0.5rem 2rem;
+  }
+  .dropdown-content {
+    position: static;
+    box-shadow: none;
+    background: none;
+    min-width: 0;
+    padding: 0;
+    border-radius: 0;
+  }
+  .dropdown-content a {
+    padding-left: 2.5rem;
+  }
+  .dropdown:hover .dropdown-content,
+  .dropdown:focus-within .dropdown-content {
+    display: block;
+  }
+}
 
 /* ===== Skills Section ===== */
 .skills {
