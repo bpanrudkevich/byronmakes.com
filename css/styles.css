@@ -33,17 +33,15 @@ body {
   z-index: 1;
 }
 
-
-
-
-#hero-video {
+/* Shift hero video up by 1/5 of the frame */
+#temp-vid {
   position: absolute;
-  top: 0;
+  top: -15vh;           /* Shift up by 15% of viewport height */
   left: 0;
-  width: 100%;
-  height: 100%;
+  width: 100vw;
+  height: 100vh;
   object-fit: cover;
-  z-index: -1;
+  z-index: 1;
   border: none;
   outline: none;
 }
@@ -85,30 +83,55 @@ body {
   }
 }
 
+/* Move and crop hero video on mobile so it fills the viewer, keeping the viewer size the same */
+@media (max-width: 768px) {
+  #temp-vid {
+    position: absolute;
+    top: -10vh;         /* Move up */
+    left: 10vw;         /* Move right */
+    width: 120vw;       /* Make video wider to fill the viewer after shifting */
+    height: 120vh;      /* Make video taller to fill the viewer after shifting */
+    object-fit: cover;
+    object-position: center;
+    z-index: 1;
+    /* The .hero container keeps its original size, only the video is larger and shifted */
+  }
+}
+
 /* ===== Navigation ===== */
+/* Transparent nav bar and right-aligned nav links */
 nav {
   position: fixed;
   top: 0;
   left: 0;
-  width: 100%;
-  text-align: center;
-  z-index: 10;
-  background: rgb(255, 255, 255); /* semi-transparent for readability */
-  padding: 0.75rem 0;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  width: 100vw;
+  background: transparent;
+  z-index: 20;
+  height: 5rem;               /* Increase nav height if needed */
+  display: flex;
+  align-items: flex-start;    /* Align items to the top by default */
+  justify-content: flex-start;      /* Align nav content to the left */
+  padding: 1.5rem 50rem;                  /* Standard horizontal padding */
+  box-shadow: none;
 }
 
+/* Right-align nav links */
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 2.5rem;
+  margin-left: 8rem;                /* Push buttons to the right from the left edge */
+}
+
+.nav-links a,
 nav a {
-  color: rgb(0, 0, 0);
-  margin: 0 2.5rem;
+  font-size: 1.5rem;         /* Restore to normal size */
+  font-weight: 700;        /* Semi-bold, not bold */
+  letter-spacing: normal;
+  color: rgb(255, 255, 255);
   text-decoration: none;
-  font-weight: 600;
   transition: color 0.3s;
-  font-size: 1.25rem;
-}
-
-nav a:hover {
-  color: #00bcd4;
+  margin: 0 0.5rem;        /* Restore previous spacing */
 }
 
 /* Dropdown container */
@@ -204,31 +227,28 @@ nav a, .dropdown {
 
 /* Responsive nav */
 @media (max-width: 768px) {
+  nav {
+    justify-content: flex-start;
+    padding: 0 1rem;
+  }
   .nav-links {
-    display: none;
     flex-direction: column;
+    align-items: flex-start;
+    gap: 1.2rem;
     background: rgba(255,255,255,0.97);
     position: absolute;
     top: 100%;
-    left: 0;
-    width: 100vw;
+    right: 0;
+    left: auto;
+    width: 70vw;
+    min-width: 180px;
     box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-    padding: 1rem 0;
+    padding: 1rem 1.5rem;
     z-index: 15;
+    display: none;
   }
   .nav-links.open {
     display: flex;
-  }
-  nav {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    background: rgba(255,255,255,0.97);
-    z-index: 20;
-    height: 3.5rem;
-    display: flex;
-    align-items: center;
   }
   .hamburger {
     display: flex;
@@ -475,5 +495,116 @@ footer a[href^="mailto:"] {
 @media (max-width: 900px), (pointer: coarse) {
   .parallax-panel {
     background-attachment: scroll;
+  }
+}
+
+/* ===== Resume Hero ===== */
+.resume-hero {
+  position: relative;
+  width: 100vw;
+  height: 40vh;
+  min-height: 220px;
+  max-height: 350px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#resume-hero-img {
+  width: 100vw;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+
+.resume-hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.35);
+  z-index: 2;
+}
+
+.resume-hero-content {
+  position: relative;
+  z-index: 3;
+  color: #fff;
+  text-align: center;
+  width: 100%;
+}
+
+.resume-hero-content h2 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin: 0;
+  letter-spacing: 0.03em;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.18);
+}
+
+/* Pill-shaped, interactive download button with small, diffused hover effect */
+.resume-download-btn {
+  display: inline-block;
+  padding: 0.75rem 2.2rem;
+  background: #4fc3f7;
+  color: #fff;
+  border: none;
+  border-radius: 2rem;
+  font-size: 1.2rem;
+  font-weight: 600;
+  text-decoration: none;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition: background 0.2s, color 0.2s;
+}
+
+.resume-download-btn::after {
+  content: '';
+  position: absolute;
+  left: var(--x, 50%);
+  top: var(--y, 50%);
+  width: 54px;
+  height: 54px;
+  /* More fuzzy, cloud-like effect */
+  background: radial-gradient(circle, 
+    rgba(255,255,255,0.45) 0%, 
+    rgba(255,255,255,0.18) 40%, 
+    rgba(255,255,255,0.08) 70%, 
+    rgba(255,255,255,0.01) 100%);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.35s;
+  z-index: 2;
+}
+
+.resume-download-btn:hover::after {
+  opacity: 1;
+}
+
+/* Make resume image a little smaller */
+.resume-img {
+  max-width: 60%;
+  border: 1px solid #ccc;
+  border-radius: 1rem;
+  display: block;
+  margin: 0 auto;
+}
+
+/* Responsive for mobile */
+@media (max-width: 700px) {
+  .resume-hero {
+    height: 22vh;
+    min-height: 100px;
+    max-height: 160px;
+  }
+  .resume-hero-content h2 {
+    font-size: 1.3rem;
   }
 }

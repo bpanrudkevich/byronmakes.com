@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Resume | Byron Makes</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <!-- Header & Navigation -->
+  <nav>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="projects.html">Projects</a>
+      <a href="resume.html">Resume</a>
+      <a href="about.html">About</a>
+    </div>
+  </nav>
+
+  <main>
+    <!-- Hero-style image at the top -->
+    <div class="resume-hero">
+      <img src="img/resume_backdrop.jpg" alt="Resume Hero" id="resume-hero-img">
+      <div class="resume-hero-overlay"></div>
+      <div class="resume-hero-content">
+        <h2>resume</h2>
+      </div>
+    </div>
+
+    <div style="text-align:center; margin: 2rem 0;">
+      <a href="files/Byron_Panrudkevich_Mechanical_Engineer_Resume.pdf"
+         download
+         class="resume-download-btn">
+        Download Resume (PDF)
+      </a>
+    </div>
+    <div style="display:flex; justify-content:center;">
+      <img src="img/Byron_Panrudkevich_Mechanical_Engineer_Resume.jpg" alt="Resume of Byron Panrudkevich" class="resume-img">
+    </div>
+  </main>
+
+  <footer>
+    <p>Contact me at <a href="mailto:hello@byronmakes.com">hello@byronmakes.com</a></p>
+  </footer>
+
+  <script>
+    // Restore hover effect to follow both x and y
+    document.querySelectorAll('.resume-download-btn').forEach(btn => {
+      btn.addEventListener('mousemove', function(e) {
+        const rect = btn.getBoundingClientRect();
+        btn.style.setProperty('--x', `${e.clientX - rect.left}px`);
+        btn.style.setProperty('--y', `${e.clientY - rect.top}px`);
+      });
+      btn.addEventListener('mouseleave', function() {
+        btn.style.setProperty('--x', `50%`);
+        btn.style.setProperty('--y', `50%`);
+      });
+    });
+  </script>
+</body>
+</html>
