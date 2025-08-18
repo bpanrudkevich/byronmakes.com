@@ -13,10 +13,17 @@
   <!-- Navigation on top -->
   <nav>
     <div class="nav-links">
-      <a href="index.html">Home</a>
-      <a href="projects.html">Projects</a>
-      <a href="resume.html">Resume</a>
-      <a href="about.html">About</a>
+      <a href="index.html">home</a>
+      <div class="dropdown">
+        <span class="dropbtn">projects</span>
+        <div class="dropdown-content">
+          <a href="project1.html">professional projects</a>
+          <a href="project2.html">academic research</a>
+          <a href="project3.html">personal projects</a>
+        </div>
+      </div>
+      <a href="resume.html">resume</a>
+      <a href="about.html">about</a>
     </div>
   </nav>
 
@@ -29,7 +36,7 @@
     </video>
     <div class="hero-content">
       <h1>hi, i’m byron</h1>
-    <p>Mechanical Engineer | Designer | Maker</p>
+    <p>mechanical engineer | designer | maker</p>
     </div>
   </header>
 
@@ -47,7 +54,21 @@
 
     <!-- Projects Section -->
     <section class="projects-grid">
-      <div class="project-panel parallax-panel" id="parallax-project1" style="background-image: url('img/underact-hand.jpg');">
+      <div class="project-panel parallax-panel" id="parallax-project1">
+        <!-- Scrolling images as background -->
+        <div class="scrolling-images-bg">
+          <div class="scrolling-images">
+            <img src="img/shark_carpet.jpg" alt="Professional Project 1">
+            <img src="img/shark_hydro.jpg" alt="Professional Project 2">
+            <img src="img/shark_rabbit.jpg" alt="Professional Project 3">
+            <img src="img/halo.png" alt="Professional Project 4">
+            <!-- Duplicate for seamless loop -->
+            <img src="img/shark_carpet.jpg" alt="Professional Project 1">
+            <img src="img/shark_hydro.jpg" alt="Professional Project 2">
+            <img src="img/shark_rabbit.jpg" alt="Professional Project 3">
+            <img src="img/halo.png" alt="Professional Project 4">
+          </div>
+        </div>
         <div class="panel-content">
           <img src="img/underact-hand.jpg" alt="Professional Projects" class="project-thumb">
           <h3>Professional Projects</h3>
@@ -120,6 +141,15 @@
   }
 
   requestAnimationFrame(updateParallax);
+
+  // Parallax scroll for professional projects background images
+  window.addEventListener('scroll', function() {
+    const bg = document.querySelector('#parallax-project1 .scrolling-images');
+    if (!bg) return;
+    // Adjust the divisor for scroll speed (higher = slower)
+    const offset = window.scrollY / 2.5;
+    bg.style.transform = `translateX(${-offset}px)`;
+  });
 </script>
 </body>
 </html>
