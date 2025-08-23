@@ -111,45 +111,29 @@
   </footer>
 
   <script>
+  // Hamburger menu code (keep if needed)
   const hamburger = document.getElementById('hamburger');
   const navLinks = document.getElementById('navLinks');
-  const navLinkItems = navLinks.querySelectorAll('a');
+  const navLinkItems = navLinks ? navLinks.querySelectorAll('a') : [];
 
-  hamburger.onclick = function() {
-    navLinks.classList.toggle('open');
-    hamburger.classList.toggle('spin');
-  };
-
-  navLinkItems.forEach(link => {
-    link.onclick = function() {
-      navLinks.classList.remove('open');
-      hamburger.classList.remove('spin');
+  if (hamburger && navLinks) {
+    hamburger.onclick = function() {
+      navLinks.classList.toggle('open');
+      hamburger.classList.toggle('spin');
     };
-  });
 
-  // Smooth parallax effect for Project 1
-  const parallaxPanel = document.getElementById('parallax-project1');
-  let lastScrollY = window.scrollY;
-
-  function updateParallax() {
-    if (parallaxPanel) {
-      // Adjust the divisor (e.g., 2.5) for more/less parallax effect
-      const offset = window.scrollY / 2.5;
-      parallaxPanel.style.backgroundPosition = `center ${-offset}px`;
-    }
-    requestAnimationFrame(updateParallax);
+    navLinkItems.forEach(link => {
+      link.onclick = function() {
+        navLinks.classList.remove('open');
+        hamburger.classList.remove('spin');
+      };
+    });
   }
 
-  requestAnimationFrame(updateParallax);
+  // Continuous scrolling for professional projects background images
+  // Remove scroll event and use CSS animation instead!
+  // No JS needed for scrolling images
 
-  // Parallax scroll for professional projects background images
-  window.addEventListener('scroll', function() {
-    const bg = document.querySelector('#parallax-project1 .scrolling-images');
-    if (!bg) return;
-    // Adjust the divisor for scroll speed (higher = slower)
-    const offset = window.scrollY / 2.5;
-    bg.style.transform = `translateX(${-offset}px)`;
-  });
-</script>
+  </script>
 </body>
 </html>

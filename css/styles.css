@@ -514,22 +514,9 @@ footer a[href^="mailto:"] {
   display: flex;
   align-items: stretch;
   height: 100%;
-  /* Remove animation: */
-  /* animation: scroll-images-bg 18s linear infinite; */
+  animation: scroll-images-bg 30s linear infinite; /* Slower scroll: increase duration */
   will-change: transform;
   transition: none;
-}
-
-.scrolling-images img {
-  height: 100%;
-  width: auto;
-  min-width: 0;
-  object-fit: contain; /* Show full image, preserve aspect ratio */
-  opacity: 0.90;
-  /*filter: blur(1px) grayscale(20%);*/
-  pointer-events: none;
-  user-select: none;
-  display: block;
 }
 
 @keyframes scroll-images-bg {
