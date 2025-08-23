@@ -4,31 +4,29 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Byron Makes | Mechanical Engineering Portfolio</title>
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-  <!-- Stylesheet -->
   <link rel="stylesheet" href="css/styles.css">
+  <!-- Google Fonts if needed -->
 </head>
 <body>
-  <!-- Navigation on top -->
+  <!-- Navigation -->
   <nav>
     <div class="nav-links">
-      <a href="index.html">home</a>
+      <a href="index.html">Home</a>
       <div class="dropdown">
-        <span class="dropbtn">projects</span>
+        <span class="dropbtn">Projects</span>
         <div class="dropdown-content">
-          <a href="project1.html">professional projects</a>
-          <a href="project2.html">academic research</a>
-          <a href="project3.html">personal projects</a>
+          <a href="project1.html">Professional Projects</a>
+          <a href="project2.html">Academic Research</a>
+          <a href="project3.html">Personal Projects</a>
         </div>
       </div>
-      <a href="resume.html">resume</a>
-      <a href="about.html">about</a>
+      <a href="resume.html">Resume</a>
+      <a href="about.html">About</a>
     </div>
   </nav>
 
-  <!-- Header with Video Background -->
-  <header class="hero">
+  <!-- Hero Section (optional, keep if you want the video) -->
+  <section class="hero">
     <video autoplay muted loop playsinline id="temp-vid" poster="img/video-fallback.jpg">
       <source src="videos/underact-hand-grasp.mp4" type="video/mp4">
       <source src="videos/underact-hand-grasp.webm" type="video/webm">
@@ -36,104 +34,154 @@
     </video>
     <div class="hero-content">
       <h1>hi, i’m byron</h1>
-    <p>mechanical engineer | designer | maker</p>
+      <!-- <p>Mechanical Engineer | Designer | Maker</p> -->
     </div>
-  </header>
+  </section>
 
+  <!-- Professional Summary -->
+  <section class="professional-summary">
+    <p>
+      I am a mechanical engineer and designer with a passion for robotics, prototyping, and creative problem solving. My experience spans professional, academic, and personal projects—each driven by curiosity and a commitment to quality engineering.
+    </p>
+  </section>
+
+  <!-- Professional Experience Timeline -->
+  <figure class="timeline-figure horizontal-timeline">
+    <figcaption>Professional Experience</figcaption>
+    <div class="timeline-horizontal">
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-content">
+          <span class="timeline-title">Student<br>Engineering School</span>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-content">
+          <span class="timeline-title">Intern<br>Innovatech</span>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-content">
+          <span class="timeline-title">Graduate Researcher<br>University Lab</span>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-content">
+          <span class="timeline-title">R&D Engineer<br>ABC Manufacturing</span>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-content">
+          <span class="timeline-title">Lead Engineer<br>XYZ Robotics</span>
+        </div>
+      </div>
+    </div>
+  </figure>
+
+  <!-- 2x10 Project Tile Grid -->
   <main>
-    <!-- Skills Section -->
-    <section class="skills">
-      <h2>Tools & Skills</h2>
-      <div class="skill-grid">
-        <div>SolidWorks</div>
-        <div>OnShape</div>
-        <div>3D Printing</div>
-        <div>Airflow Simulation</div>
-      </div>
-    </section>
-
-    <!-- Projects Section -->
-    <section class="projects-grid">
-      <div class="project-panel parallax-panel" id="parallax-project1">
-        <!-- Scrolling images as background -->
-        <div class="scrolling-images-bg">
-          <div class="scrolling-images">
-            <img src="img/shark_carpet.jpg" alt="Professional Project 1">
-            <img src="img/shark_hydro.jpg" alt="Professional Project 2">
-            <img src="img/shark_rabbit.jpg" alt="Professional Project 3">
-            <img src="img/halo.png" alt="Professional Project 4">
-            <!-- Duplicate for seamless loop -->
-            <img src="img/shark_carpet.jpg" alt="Professional Project 1">
-            <img src="img/shark_hydro.jpg" alt="Professional Project 2">
-            <img src="img/shark_rabbit.jpg" alt="Professional Project 3">
-            <img src="img/halo.png" alt="Professional Project 4">
-          </div>
-        </div>
-        <div class="panel-content">
-          <img src="img/underact-hand.jpg" alt="Professional Projects" class="project-thumb">
-          <h3>Professional Projects</h3>
-          <p>Short description of professional projects.</p>
-          <a href="project1.html" class="panel-btn">Learn More</a>
-        </div>
-      </div>
-      <div class="project-panel" style="background-image: url('img/project2-bg.jpg');">
-        <div class="panel-content">
-          <img src="img/project2-thumb.jpg" alt="Academic Research" class="project-thumb">
-          <h3>Academic Research</h3>
-          <p>Short description of academic research.</p>
-          <a href="project2.html" class="panel-btn">Learn More</a>
-        </div>
-      </div>
-      <div class="project-panel" style="background-image: url('img/project3-bg.jpg');">
-        <div class="panel-content">
-          <img src="img/project3-thumb.jpg" alt="Personal Projects" class="project-thumb">
-          <h3>Personal Projects</h3>
-          <p>Short description of personal projects.</p>
-          <a href="project3.html" class="panel-btn">Learn More</a>
-        </div>
-      </div>
-      <div class="project-panel" style="background-image: url('img/project4-bg.jpg');">
-        <div class="panel-content">
-          <img src="img/project4-thumb.jpg" alt="Project 4" class="project-thumb">
-          <h3>Project 4</h3>
-          <p>Short description of project 4.</p>
-          <a href="project4.html" class="panel-btn">Learn More</a>
-        </div>
-      </div>
+    <section class="tile-grid">
+      <!-- Example tiles, update href and img src as needed -->
+      <a href="project1.html" class="tile">
+        <img src="img/halo.png" alt="Project 1">
+        <span>Project 1</span>
+      </a>
+      <a href="project2.html" class="tile">
+        <img src="img/shark_carpet.jpg" alt="Project 2">
+        <span>Project 2</span>
+      </a>
+      <a href="project3.html" class="tile">
+        <img src="img/shark_hydro.jpg" alt="Project 3">
+        <span>Project 3</span>
+      </a>
+      <a href="project4.html" class="tile">
+        <img src="img/shark_rabbit.jpg" alt="Project 4">
+        <span>Project 4</span>
+      </a>
+      <a href="project5.html" class="tile">
+        <img src="img/tile5.jpg" alt="Project 5">
+        <span>Project 5</span>
+      </a>
+      <a href="project6.html" class="tile">
+        <img src="img/tile6.jpg" alt="Project 6">
+        <span>Project 6</span>
+      </a>
+      <a href="project7.html" class="tile">
+        <img src="img/tile7.jpg" alt="Project 7">
+        <span>Project 7</span>
+      </a>
+      <a href="project8.html" class="tile">
+        <img src="img/tile8.jpg" alt="Project 8">
+        <span>Project 8</span>
+      </a>
+      <a href="project9.html" class="tile">
+        <img src="img/tile9.jpg" alt="Project 9">
+        <span>Project 9</span>
+      </a>
+      <a href="project10.html" class="tile">
+        <img src="img/tile10.jpg" alt="Project 10">
+        <span>Project 10</span>
+      </a>
+      <a href="project11.html" class="tile">
+        <img src="img/tile11.jpg" alt="Project 11">
+        <span>Project 11</span>
+      </a>
+      <a href="project12.html" class="tile">
+        <img src="img/tile12.jpg" alt="Project 12">
+        <span>Project 12</span>
+      </a>
+      <a href="project13.html" class="tile">
+        <img src="img/tile13.jpg" alt="Project 13">
+        <span>Project 13</span>
+      </a>
+      <a href="project14.html" class="tile">
+        <img src="img/tile14.jpg" alt="Project 14">
+        <span>Project 14</span>
+      </a>
+      <a href="project15.html" class="tile">
+        <img src="img/tile15.jpg" alt="Project 15">
+        <span>Project 15</span>
+      </a>
+      <a href="project16.html" class="tile">
+        <img src="img/tile16.jpg" alt="Project 16">
+        <span>Project 16</span>
+      </a>
+      <a href="project17.html" class="tile">
+        <img src="img/tile17.jpg" alt="Project 17">
+        <span>Project 17</span>
+      </a>
+      <a href="project18.html" class="tile">
+        <img src="img/tile18.jpg" alt="Project 18">
+        <span>Project 18</span>
+      </a>
+      <a href="project19.html" class="tile">
+        <img src="img/tile19.jpg" alt="Project 19">
+        <span>Project 19</span>
+      </a>
+      <a href="project20.html" class="tile">
+        <img src="img/tile20.jpg" alt="Project 20">
+        <span>Project 20</span>
+      </a>
     </section>
   </main>
 
-  <!-- Footer -->
   <footer>
-    
     <p>Contact me at <a href="mailto:hello@byronmakes.com">hello@byronmakes.com</a></p>
-    <p>&copy; 2025 Byron Makes</p>
   </footer>
 
+  <!-- Add this just before </body> -->
   <script>
-  // Hamburger menu code (keep if needed)
-  const hamburger = document.getElementById('hamburger');
-  const navLinks = document.getElementById('navLinks');
-  const navLinkItems = navLinks ? navLinks.querySelectorAll('a') : [];
-
-  if (hamburger && navLinks) {
-    hamburger.onclick = function() {
-      navLinks.classList.toggle('open');
-      hamburger.classList.toggle('spin');
-    };
-
-    navLinkItems.forEach(link => {
-      link.onclick = function() {
-        navLinks.classList.remove('open');
-        hamburger.classList.remove('spin');
-      };
-    });
-  }
-
-  // Continuous scrolling for professional projects background images
-  // Remove scroll event and use CSS animation instead!
-  // No JS needed for scrolling images
-
+    const vid = document.getElementById('temp-vid');
+    if (vid) {
+      vid.addEventListener('ended', function() {
+        vid.currentTime = 0;
+        vid.play();
+      });
+    }
   </script>
 </body>
 </html>
